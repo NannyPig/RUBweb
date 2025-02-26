@@ -8,18 +8,18 @@ export const secondFn = () => {
 }
 
 
-type SumFn = (a: number, b: number, c?: number) => number;
-type MultiFn = (a: number, b: number, c?: number) => number;
+type SumOrMultiFn = (a: number, b: number, c?: number) => number;
+// type MultiFn = (a: number, b: number, c?: number) => number;
 
-const sum: SumFn = (a, b, c = 0) => {
+const sum: SumOrMultiFn = (a, b, c = 0) => {
     return a + b + c;
 }
 
 const theSum = sum(4, 2, 5);
 
 
-const aMultiplier = (a, b, c) => {
-
+const aMultiplier: SumOrMultiFn = (a, b, c = 1) => {
+    return a * b * c;
 }
 
 
