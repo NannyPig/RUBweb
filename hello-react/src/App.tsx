@@ -1,7 +1,8 @@
 import "./App.css";
+import Header from "./Header";
 
 function App() {
-  const title = "Mobile";
+  const title = "Web 3";
   const { firstName, lastName } = {
     firstName: "David",
     lastName: "Breckx",
@@ -13,6 +14,8 @@ function App() {
   return (
     // React Fragment
     <>
+      <Header title={title} isDone={true} />
+
       <h1 className="title">{title}</h1>
       <p>
         {`${firstName} ${lastName}`}
