@@ -1,18 +1,18 @@
-import React from "react";
-
-type MovieItemProps = {
-  title: string;
-};
+// type MovieItemProps = {
+//   title: string;
+// };
 
 interface IMovieItemProps {
   title: string;
+  image: string;
 }
 
-const MovieItem = (props: IMovieItemProps) => {
-  const { title } = props;
+const MovieItem = ({ title, image }: IMovieItemProps) => {
+  //   const { title } = props;
 
   return (
     <div>
+      <img src={new URL(`../assets/images/${image}`, import.meta.url).href} />
       <p>{title}</p>
     </div>
   );

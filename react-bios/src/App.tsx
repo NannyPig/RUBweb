@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       {movies.map((m) => {
-        return <MovieItem key={m.id} title={m.title} />;
+        return <MovieItem key={m.id} title={m.title} image={m.poster_path} />;
       })}
     </div>
   );
