@@ -40,7 +40,11 @@ const MovieItem = ({ title, image }: IMovieItemProps): ReactNode => {
       <h1 className="text-3xl font-bold text-center">{title}</h1>
       <p>{counter}</p>
       <p>{history}</p>
-      <p>{`${student.firstName} ${student.lastName}`}</p>
+      {/* Conditioneel renderen */}
+      {student ? <p>{`${student.firstName} ${student.lastName}`}</p> : null}
+
+      {student && <p>{`${student.firstName} ${student.lastName}`}</p>}
+
       <MyButton
         onClick={() => {
           const newCounter = counter + 1;
