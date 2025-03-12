@@ -7,6 +7,7 @@
 import { ReactNode, useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import MyButton from "./MyButton";
+import Counter from "./Counter";
 
 interface IMovieItemProps {
   title: string;
@@ -33,6 +34,8 @@ const MovieItem = ({ title, image }: IMovieItemProps): ReactNode => {
 
   //   return "Hello world";
 
+  console.log("MovieItem render");
+
   return (
     // <div className={styles.movieItem}>
     <div className="rounded-lg shadow-2xl overflow-clip hover:scale-105">
@@ -45,14 +48,7 @@ const MovieItem = ({ title, image }: IMovieItemProps): ReactNode => {
 
       {student && <p>{`${student.firstName} ${student.lastName}`}</p>}
 
-      <MyButton
-        onClick={() => {
-          const newCounter = counter + 1;
-          setCounter(newCounter);
-          console.log(newCounter);
-        }}>
-        Verhogen
-      </MyButton>
+      <Counter setCounter={setCounter} />
       <MyButton
         onClick={() => {
           setHistory([...history, counter]);
