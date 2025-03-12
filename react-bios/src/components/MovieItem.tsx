@@ -4,7 +4,7 @@
 //   title: string;
 // };
 
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import MyButton from "./MyButton";
 
@@ -13,7 +13,22 @@ interface IMovieItemProps {
   image: string;
 }
 
+interface Student {
+  firstName: string;
+  lastName: string;
+  age?: number;
+}
+
 const MovieItem = ({ title, image }: IMovieItemProps): ReactNode => {
+  const [counter, setCounter] = useState(0);
+  const [history, setHistory] = useState<number[]>([]);
+
+  const [student, setStudent] = useState<Student>();
+
+  // const currentValue = stateArr[0];
+  // const updater = stateArr[1];
+
+  // let counter = 0;
   //   const { title } = props;
 
   //   return "Hello world";
@@ -23,6 +38,29 @@ const MovieItem = ({ title, image }: IMovieItemProps): ReactNode => {
     <div className="rounded-lg shadow-2xl overflow-clip hover:scale-105">
       <img src={new URL(`../assets/images/${image}`, import.meta.url).href} />
       <h1 className="text-3xl font-bold text-center">{title}</h1>
+      <p>{counter}</p>
+      <p>{history}</p>
+      <p>{`${student.firstName} ${student.lastName}`}</p>
+      <MyButton
+        onClick={() => {
+          const newCounter = counter + 1;
+          setCounter(newCounter);
+          console.log(newCounter);
+        }}>
+        Verhogen
+      </MyButton>
+      <MyButton
+        onClick={() => {
+          setHistory([...history, counter]);
+        }}>
+        Toevoegen
+      </MyButton>
+      <MyButton
+        onClick={() => {
+          setStudent({ firstName: "John", lastName: "Doe" });
+        }}>
+        Pas gegevens aan
+      </MyButton>
       <MyButton>
         <div className="flex gap-2 items-center">
           <FiCheckCircle />
