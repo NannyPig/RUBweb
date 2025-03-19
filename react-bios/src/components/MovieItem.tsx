@@ -8,6 +8,7 @@ import { ReactNode, useState } from "react";
 import { FiCheckCircle } from "react-icons/fi";
 import MyButton from "./MyButton";
 import Counter from "./Counter";
+import { Link } from "react-router-dom";
 
 interface IMovieItemProps {
   title: string;

@@ -9,6 +9,7 @@ import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
 import RootLayout from "./layouts/RootLayout.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
+import ParkingsPage from "./pages/ParkingsPage.tsx";
 
 const browserRouter = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const browserRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/parkings",
+        element: <ParkingsPage />,
       },
       // 1
     ],
