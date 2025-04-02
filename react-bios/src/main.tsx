@@ -11,6 +11,7 @@ import RootLayout from "./layouts/RootLayout.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import ParkingsPage from "./pages/ParkingsPage.tsx";
 import FavoritesContextProvider from "./contexts/FavoritesContext.tsx";
+import FavoritesPage from "./pages/FavoritesPage.tsx";
 
 const browserRouter = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const browserRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/favorites",
+        element: <FavoritesPage />,
       },
       {
         path: "/parkings",
