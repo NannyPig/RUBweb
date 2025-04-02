@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       <MyButton>Ga naar Home</MyButton>
+
       <div className="grid md:grid-cols-3 gap-4 p-4">
         {movies.map((m) => {
           return <MovieItem key={m.id} title={m.title} image={m.poster_path} />;

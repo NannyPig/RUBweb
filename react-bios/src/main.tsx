@@ -10,6 +10,7 @@ import Footer from "./components/Footer.tsx";
 import RootLayout from "./layouts/RootLayout.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import ParkingsPage from "./pages/ParkingsPage.tsx";
+import FavoritesContextProvider from "./contexts/FavoritesContext.tsx";
 
 const browserRouter = createBrowserRouter([
   {
@@ -38,6 +39,8 @@ const browserRouter = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={browserRouter} />
+    <FavoritesContextProvider>
+      <RouterProvider router={browserRouter} />
+    </FavoritesContextProvider>
   </StrictMode>
 );
