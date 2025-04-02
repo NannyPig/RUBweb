@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
-import { FavoritesContext } from "../contexts/FavoritesContext";
+import { FavoritesContext, useFavorites } from "../contexts/FavoritesContext";
 
 const FavoritesPage = () => {
-  const favorites = useContext(FavoritesContext);
+  //   const { favorites } = useContext(FavoritesContext);
 
-  if (!favorites || !favorites.length) {
+  const { favorites } = useFavorites();
+
+  if (!favorites.length) {
     return <p>Geen favorieten.</p>;
   }
 
