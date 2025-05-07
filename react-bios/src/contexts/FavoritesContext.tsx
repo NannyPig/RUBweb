@@ -13,7 +13,10 @@ interface IFavoriteContextType {
 // type FavoriteContextType = string[];
 
 // STAP 1: Nieuwe context aanmaken
-const FavoritesContext = createContext<IFavoriteContextType | null>(null);
+const FavoritesContext = createContext<IFavoriteContextType>({
+  favorites: [],
+  toggleFavorite: () => {},
+});
 
 // STAP 2: Het gebruiken van de Provider component uit de Context
 const FavoritesContextProvider = (props: PropsWithChildren) => {

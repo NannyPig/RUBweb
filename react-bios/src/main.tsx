@@ -1,8 +1,6 @@
-// main.tsx (of index.tsx in mijn voorbeeld)
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 
 import "./index.css";
 import App from "./App.tsx";
@@ -22,50 +20,54 @@ import ProductsPage from "./pages/ProductsPage.tsx";
 import OffertePage from "./pages/OffertePage.tsx";
 import PersonalizePage from "./pages/PersonalizePage.tsx";
 
-const browserRouter = createBrowserRouter([
-  {
-    element: <RootLayout />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-      },
-      { path: "/products", element: <ProductsPage /> },
-      {
-        path: "/contact",
-        element: <ContactPage />,
-      },
-      {
-        path: "/favorites",
-        element: <FavoritesPage />,
-      },
-      {
-        path: "/cart", // Nieuwe route voor winkelmandje
-        element: <CartPage />,
-      },
-      {
-        path: "/details/:id",
-        element: <DetailsPage />,
-      },
-      {
-        path: "/parkings",
-        element: <ParkingsPage />,
-      },
-      {
-        path: "/offerte",
-        element: <OffertePage />,
-      },
-      {
-        path:"/personalize",
-        element:<PersonalizePage />,
-      }
-    ],
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-]);
+// Voeg basename toe aan de router configuratie
+const browserRouter = createBrowserRouter(
+  [
+    {
+      element: <RootLayout />,
+      children: [
+        {
+          path: "/",
+          element: <HomePage />,
+        },
+        { path: "/products", element: <ProductsPage /> },
+        {
+          path: "/contact",
+          element: <ContactPage />,
+        },
+        {
+          path: "/favorites",
+          element: <FavoritesPage />,
+        },
+        {
+          path: "/cart", // Nieuwe route voor winkelmandje
+          element: <CartPage />,
+        },
+        {
+          path: "/details/:id",
+          element: <DetailsPage />,
+        },
+        {
+          path: "/parkings",
+          element: <ParkingsPage />,
+        },
+        {
+          path: "/offerte",
+          element: <OffertePage />,
+        },
+        {
+          path:"/personalize",
+          element:<PersonalizePage />,
+        }
+      ],
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
+    },
+  ],
+  { basename: "/RUBweb" }  // Zorg ervoor dat de basename overeenkomt met je submap
+);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

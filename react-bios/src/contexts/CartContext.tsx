@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface CartItem {
   id: number;
@@ -23,16 +23,21 @@ export const useCart = (): CartContextType => {
   return context;
 };
 
-export const CartContextProvider: React.FC = ({ children }) => {
+// ✅ Fix hier: typedeclaratie voor 'children'
+interface CartProviderProps {
+  children: ReactNode;
+}
+
+export function CartContextProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const addToCart = (item: CartItem) => {
-    console.log("🛒 Toevoegen aan winkelmandje:", item); // Debug log
+    console.log("🛒 Toevoegen aan winkelmandje:", item);
     setCartItems((prevItems) => [...prevItems, item]);
   };
 
   const removeFromCart = (id: number) => {
-    console.log("🗑️ Verwijderen uit winkelmandje:", id); // Debug log
+    console.log("🗑️ Verwijderen uit winkelmandje:", id);
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
@@ -41,5 +46,6 @@ export const CartContextProvider: React.FC = ({ children }) => {
       {children}
     </CartContext.Provider>
   );
-};
+}
+
 export default CartContextProvider;
